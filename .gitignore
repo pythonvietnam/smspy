@@ -1,0 +1,12 @@
+smssettings.py
+todo
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Based on github.com/github/gitignore/blob/master/Python.gitignore
