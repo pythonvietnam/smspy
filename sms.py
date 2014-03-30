@@ -1,10 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 import argparse
 import requests
 import smssettings
-import sys
 import webbrowser
 
 login_url = 'https://www.telenor.no/privat/minesider/logginnfelles.cms'
@@ -14,7 +13,7 @@ sendsms_url = 'https://telenormobil.no/norm/win/sms/send/process.do'
 
 parser = argparse.ArgumentParser(description='Send an SMS')
 parser.add_argument('phonenumber', type=int,
-                   help='One 6 digit norwegian phone number: XXXXXXXX')
+                   help='One 8 digit norwegian phone number: XXXXXXXX')
 parser.add_argument('message', type=str,
                    help='Your message in double or single quotes, example: \"Hey mum\" ')
 args = parser.parse_args()
@@ -23,8 +22,8 @@ args = parser.parse_args()
 def show(content):
     """Write HTML to file and open in browser"""
     
-    with open('respons.html', 'w') as fil:
-        fil.write(content.content)
+    with open('respons.html', 'w') as dumpfile:
+        dumpfile.write(content.text)
     webbrowser.open('respons.html')
 
 
@@ -53,11 +52,11 @@ show(login_get_response)
 login_post_response = sessionID.post(login_url, login_payload)
 show(login_post_response)
 
-minside_response = sessionID.get(minside_url)
-show(minside_response)
+#minside_response = sessionID.get(minside_url)
+#show(minside_response)
 
 smspage_response = sessionID.get(smspage_url)
 show(smspage_response)
 
 sms_response = sessionID.post(sendsms_url, sms_payload)
-show(smspage_response)
+show(sms_response)
