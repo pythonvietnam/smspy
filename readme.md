@@ -5,5 +5,5 @@ Only works for Telenor customers in Norway.
 
 Requres [requests](http://docs.python-requests.org/en/latest/user/install/). Try: 'pip install requests'
 
-Usage: 'python sms.py phone-number "message"'
+Usage: 'python sms.py phone-number "message"'   
 
